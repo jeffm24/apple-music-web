@@ -1,0 +1,9 @@
+{
+    "public": {
+        "app": {
+            "build": "1.0",
+            "name": "Apple Musc Web Player"
+        },
+        "MusicKitDevToken": "DEVELOPER-TOKEN"
+    }
+}
