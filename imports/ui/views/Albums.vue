@@ -4,21 +4,25 @@
 		<div 
 			v-for="row in albumRows"
 			:key="row.id"
-			class="album-row"
 		>
-			<div class="row align-items-center">
+			<div
+				class="album-row mb-2"
+				:style="{ 'grid-template-columns': `repeat(${numCols}, 1fr)` }"
+			>
 				<Album
 					v-for="album in row.albums"
 					:key="album.id"
-					:active="album.id === activeAlbumId"
+					
 					v-bind="album"
+					:active="album.id === activeAlbumId"
+					
 					@toggled="toggleAlbum"
 				/>
 			</div>
 			<TransitionExpand>
 				<div
 					v-if="row.albumMap[activeAlbumId]"
-					class="card bg-light mt-2 mb-2"
+					class="card bg-light my-2"
 				>
 					<div class="card-body">
 						<h5 class="card-title m-0">
@@ -141,3 +145,10 @@ export default {
 	}
 };
 </script>
+
+<style scoped>
+.album-row {
+	display: grid;
+	grid-gap: 10px;
+}
+</style>
