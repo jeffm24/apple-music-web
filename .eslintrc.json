@@ -1,7 +1,11 @@
 {
-    "extends": "airbnb-base",
-    "parser": "babel-eslint",
+    "extends": [
+        "airbnb-base",
+        "plugin:vue/recommended"
+    ],
+    "parserOptions": { "parser": "babel-eslint" },
     "rules": {
+        "vue/html-indent": ["error", "tab"],
         "indent": [2, "tab"],
         "no-tabs": 0,
         "camelcase": 0,

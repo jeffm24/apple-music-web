@@ -33,34 +33,25 @@
 				</form>
 			</div>
 		</nav>
-		<div class="container">
-    		<router-view/>
+		<div class="container-fluid">
+			<div class="mt-3 mb-3 ml-5 mr-5">
+    			<router-view/>
+			</div>
 		</div>
   	</div>
 </template>
 
 <script>
-import { Meteor } from 'meteor/meteor';
+// import { Meteor } from 'meteor/meteor';
 
-document.addEventListener('musickitloaded', function () {
-	MusicKit.configure({
-		developerToken: Meteor.settings.public.MusicKitDevToken,
-		app: Meteor.settings.public.app,
-		bitrate: MusicKit.PlaybackBitrate.HIGH
-	});
-});
+// document.addEventListener('musickitloaded', function () {
+// 	MusicKit.configure({
+// 		developerToken: Meteor.settings.public.MusicKitDevToken,
+// 		app: Meteor.settings.public.app,
+// 		bitrate: MusicKit.PlaybackBitrate.HIGH
+// 	});
+// });
 </script> 
 
 <style lang="scss">
-#main {
-  	font-family: 'Avenir', Helvetica, Arial, sans-serif;
- 	-webkit-font-smoothing: antialiased;
-  	-moz-osx-font-smoothing: grayscale;
-  	text-align: center;
-  	color: #2c3e50;
-
-	>.container {
-		margin: 20px auto;
-	}
-}
 </style>
