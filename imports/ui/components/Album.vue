@@ -41,3 +41,36 @@ export default {
 	methods: {}
 };
 </script>
+
+<style lang="scss" scoped>
+.album {
+	position: relative;
+
+	&.active {
+		&::before, &::after {
+			content: '';
+			cursor: default;
+			pointer-events: none;
+
+			z-index: 1;
+			position: absolute;
+			bottom: -18px;
+			left: 50%;
+			transform: translateX(-50%);
+
+			width: 0; 
+			height: 0;
+		}
+		&::before {
+			border-left: 11px solid transparent;
+			border-right: 11px solid transparent;
+			border-bottom: 11px solid rgba(0, 0, 0, 0.125);
+		}
+		&::after {
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-bottom: 10px solid #f8f9fa;
+		}
+	}
+}
+</style>

@@ -22,15 +22,51 @@
 			<TransitionExpand>
 				<div
 					v-if="row.albumMap[activeAlbumId]"
-					class="card bg-light my-2"
+					class="album-expand card bg-light my-3"
 				>
 					<div class="card-body">
-						<h5 class="card-title m-0">
-							{{ row.albumMap[activeAlbumId].title }}
-						</h5>
-						<p class="card-text mt-1">
-							{{ row.albumMap[activeAlbumId].artist }}
-						</p>
+						<div class="row">
+							<div class="col-md-3">
+								<div class="row mb-2">
+									<div class="col-2 col-md-12">
+										<img
+											:src="row.albumMap[activeAlbumId].artwork"
+											class="img-fluid w-100"
+										>
+									</div>
+									<div class="col-10 d-md-none">
+										<h5 class="card-title m-0">
+											{{ row.albumMap[activeAlbumId].title }}
+										</h5>
+										<p class="card-text mt-1">
+											{{ row.albumMap[activeAlbumId].artist }}
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-9">
+								<div class="d-none d-md-block mb-2">
+									<h5 class="card-title m-0">
+										{{ row.albumMap[activeAlbumId].title }}
+									</h5>
+									<p class="card-text mt-1">
+										{{ row.albumMap[activeAlbumId].artist }}
+									</p>
+								</div>
+
+								<div class="list-group">
+									<button
+										v-for="i in 20"
+										:key="`song-${i}`"
+										type="button"
+										class="clickable list-group-item list-group-item-action py-2"
+										:class="{ active: (i === 1) }"
+									>
+										Song {{ i }}
+									</button>
+								</div>
+							</div>
+						</div>						
 					</div>
 				</div>
 			</TransitionExpand>
@@ -86,6 +122,9 @@ export default {
 			};
 
 			for (const album of this.albums) {
+				row.albums.push(album);
+				row.albumMap[album.id] = album;
+
 				if (row.albums.length === this.numCols) {
 					rows.push(row);
 					row = {
@@ -93,9 +132,6 @@ export default {
 						albums: [],
 						albumMap: {}
 					};
-				} else {
-					row.albums.push(album);
-					row.albumMap[album.id] = album;
 				}
 			}
 
@@ -150,5 +186,8 @@ export default {
 .album-row {
 	display: grid;
 	grid-gap: 10px;
+}
+.album-expand {
+	box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.075);
 }
 </style>

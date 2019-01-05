@@ -87,4 +87,7 @@
 </script> 
 
 <style lang="scss">
+.clickable {
+	cursor: pointer!important;
+}
 </style>
